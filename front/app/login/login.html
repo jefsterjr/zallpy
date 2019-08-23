@@ -1,0 +1,15 @@
+<body class="form-signin-body  text-center">
+    <form class="form-signin" name="form" ng-submit="login()" role="form" ng-controller="LoginController">
+        <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+
+        <label for="username" class="sr-only">Usuario</label>
+
+        <input type="text" class="form-control" name="username" id="username" ng-model="vm.username" required autofocus>
+
+        <label for="password" class="sr-only">Password</label>
+
+        <input type="password" class="form-control" name="password" id="password" ng-model="vm.password" required>
+        <button class="btn btn-lg btn-success btn-block" type="submit" ng-disabled="form.$invalid || vm.dataLoading">Logar
+        </button>
+    </form>
+</body>

@@ -1,2 +1,1 @@
-# zallpy
-Projeto para seleção Zallpy
+# zallby-teste
