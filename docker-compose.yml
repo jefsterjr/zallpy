@@ -33,5 +33,19 @@ services:
       - api_proposta
     links:
       - postgres
+  front:
+    build: ./front
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+    depends_on:
+      - postgres
+      - api_proposta
+      - api_credito
+    links:
+      - api_proposta
+      - api_credito
 volumes:
   postgres-data:
