@@ -1,7 +1,11 @@
 FROM openjdk:8-jdk-alpine as jdk
-VOLUME /tmp
+FROM maven:slim
+
+WORKDIR /proposta
+COPY . /proposta/
 EXPOSE 8300
-RUN mkdir -p /app/
-RUN mkdir -p /app/logs/
-ADD target/proposta-0.0.1-SNAPSHOT.jar /app/proposta.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=container", "-jar", "/app/proposta.jar"]
+
+RUN cd /proposta && mvn clean install
+RUN cp /proposta/target/proposta-0.0.1-SNAPSHOT.jar ./api_proposta.jar
+
+CMD ["java","-jar","api_proposta.jar"]

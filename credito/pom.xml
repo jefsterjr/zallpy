@@ -10,12 +10,12 @@
         <version>2.1.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>zallpy</groupId>
+    <groupId>cadastro</groupId>
     <artifactId>credito</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>credito</name>
-    <description>Controle de crédito dos clientes</description>
+    <description></description>
 
     <properties>
         <java.version>1.8</java.version>

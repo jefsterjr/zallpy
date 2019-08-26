@@ -1,8 +1,11 @@
 FROM openjdk:8-jdk-alpine as jdk
-VOLUME /tmp
-EXPOSE 8400
-RUN mkdir -p /app/
-RUN mkdir -p /app/logs/
-ADD target/credito-0.0.1-SNAPSHOT.jar /app/credito.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=container", "-jar", "/app/credito.jar"]
+FROM maven:slim
 
+WORKDIR /credito
+COPY . /credito/
+EXPOSE 8400
+
+RUN cd /credito && mvn clean install
+RUN cp /credito/target/credito-0.0.1-SNAPSHOT.jar ./api_credito.jar
+
+CMD ["java","-jar","api_credito.jar"]

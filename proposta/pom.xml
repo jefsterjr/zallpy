@@ -8,12 +8,12 @@
         <version>2.1.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>zallpy</groupId>
+    <groupId>cadastro</groupId>
     <artifactId>proposta</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>proposta</name>
-    <description>Processo seletivo Zallby</description>
+    <description>Cadastro de proposta</description>
 
     <properties>
         <java.version>1.8</java.version>

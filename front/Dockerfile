@@ -1,14 +1,11 @@
 
 FROM node:alpine
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /front
+COPY . /front/
+EXPOSE 8300
 
-# Install app dependencies
-COPY package.json /usr/src/app/
-COPY karma.conf.js /usr/src/app/
 RUN npm install -g --quiet
 
 EXPOSE 8000
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "start" ]
