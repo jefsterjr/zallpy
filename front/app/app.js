@@ -4,25 +4,24 @@ var app = angular.module('app', [
     'app.proposta',
     'app.listagem',
     'app.login',
-    'app.home',
     'ui.utils.masks'
 ]).config(['$locationProvider', '$routeProvider', '$httpProvider', function ($locationProvider, $routeProvider, $httpProvider) {
     $locationProvider.hashPrefix('!');
 
     $routeProvider.when('/proposta', {
-        templateUrl: 'proposta/proposta.html',
+        templateUrl: 'views/proposta.html',
         controller: 'PropostaController'
     });
 
     $routeProvider.when('/listagem', {
-        templateUrl: 'listagem/listagem.html',
+        templateUrl: 'views/listagem.html',
         controller: 'ListagemController'
     });
 
 
     $routeProvider.when('/login', {
         controller: 'LoginController',
-        templateUrl: 'login/login.html'
+        templateUrl: 'views/login.html'
     }).otherwise({redirectTo: '/login'});
 
     $httpProvider.defaults.withCredentials = true;

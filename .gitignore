@@ -27,4 +27,4 @@ hs_err_pid*
 .mvn
 
 /front/node_modules
-/front/app/lib
+/front/app/assets/lib

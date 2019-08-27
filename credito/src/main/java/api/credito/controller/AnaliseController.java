@@ -33,7 +33,12 @@ public class AnaliseController {
     @ApiOperation(value = "Consulta todas as analises")
     @GetMapping
     public ResponseEntity<List<AnaliseDTO>> findAll(){
-        return ResponseEntity.ok(service.findAll());
+        try{
+            return ResponseEntity.ok(service.findAll());
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
+
     }
 
     @ApiOperation(value = "Consulta as analises filtrando o CPF")

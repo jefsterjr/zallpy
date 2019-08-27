@@ -1,6 +1,6 @@
 version: "3"
 services:
-  postgres:
+  db_postgres:
     build: ./postgres
     ports:
       - 5432:5432
@@ -17,9 +17,9 @@ services:
     ports:
       - 8300:8300
     depends_on:
-      - postgres
+      - db_postgres
     links:
-      - postgres
+      - db_postgres
 
   api_credito:
     build: ./credito
@@ -29,10 +29,10 @@ services:
       - 8400:8400
     restart: unless-stopped
     depends_on:
-      - postgres
+      - db_postgres
       - api_proposta
     links:
-      - postgres
+      - db_postgres
   front:
     build: ./front
     expose:
@@ -41,7 +41,7 @@ services:
       - 8000:8000
     restart: unless-stopped
     depends_on:
-      - postgres
+      - db_postgres
       - api_proposta
       - api_credito
     links:
